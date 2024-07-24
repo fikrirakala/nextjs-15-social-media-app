@@ -34,3 +34,33 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Steps
+
+### Project & IDE Setup
+
+1. Create Next.js 15 project
+
+```
+npx create-next-app@rc
+```
+
+2. Install dependencies
+
+```
+npm i lucia @lucia-auth/adapter-prisma prisma @prisma/client @tanstack/react-query @tanstack/react-query-devtools @tiptap/react @tiptap/starter-kit @tiptap/extension-placeholder @tiptap/pm uploadthing @uploadthing/react arctic date-fns ky next-themes react-cropper react-image-file-resizer react-intersection-observer react-linkify-it stream-chat stream-chat-react --legacy-peer-deps
+```
+
+3. Install Dev dependencies
+
+```
+npm i -D prettier eslint-config-prettier prettier-plugin-tailwindcss@latest --legacy-peer-deps
+```
+
+4. Install shadcn-ui
+
+```
+npx --legacy-peer-deps shadcn-ui@latest init
+```
+
+5. Customize Shadcn custom theme(global.css)
