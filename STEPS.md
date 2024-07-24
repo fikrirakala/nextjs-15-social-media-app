@@ -168,3 +168,7 @@ npx prisma db push
 3. Create auth.ts file (src/auth.ts)
 
 4. Create validation schema for sign-up and login form (lib/validation.ts)
+
+5. Add @node-rs/argon2 inside the next.config file
+
+6. Create server action file for signup form ((auth)/signup/actions.ts)
