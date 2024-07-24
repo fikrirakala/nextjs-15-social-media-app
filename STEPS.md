@@ -166,3 +166,5 @@ npx prisma db push
 ```
 
 3. Create auth.ts file (src/auth.ts)
+
+4. Create validation schema for sign-up and login form (lib/validation.ts)
