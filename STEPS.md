@@ -171,4 +171,6 @@ npx prisma db push
 
 5. Add @node-rs/argon2 inside the next.config file
 
-6. Create server action file for signup form ((auth)/signup/actions.ts)
+6. Create server action file for signup form (signup/actions.ts)
+
+7. Create server action file for login form (login/actions.ts)
