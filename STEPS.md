@@ -180,3 +180,7 @@ npx prisma db push
 9. Create Sign up page (page, signup form, loading button, password input)
 
 10. Create Login page (page, login form)
+
+## Navbar & Session Provider
+
+1. Create auth layout (auth/layout.tsx)
