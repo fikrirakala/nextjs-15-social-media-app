@@ -174,3 +174,5 @@ npx prisma db push
 6. Create server action file for signup form (signup/actions.ts)
 
 7. Create server action file for login form (login/actions.ts)
+
+8. Create server action file for logout (auth/actions.ts)
