@@ -184,3 +184,9 @@ npx prisma db push
 ## Navbar & Session Provider
 
 1. Create auth layout (auth/layout.tsx)
+
+2. Create main route groups
+
+3. Create main layout
+
+4. Create main session provider
