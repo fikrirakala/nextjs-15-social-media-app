@@ -191,4 +191,10 @@ npx prisma db push
 
 4. Create main session provider
 
-5. Create Navbar (logo, user button, search input)
+5. Create Navbar (logo, user button, search)
+
+## Dark mode
+
+1. Create ThemeProvider
+
+2. Create Theme toggle component
