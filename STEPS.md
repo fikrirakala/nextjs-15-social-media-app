@@ -190,3 +190,5 @@ npx prisma db push
 3. Create main layout
 
 4. Create main session provider
+
+5. Create Navbar (logo, user button, search input)
