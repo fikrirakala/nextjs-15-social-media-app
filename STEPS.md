@@ -198,3 +198,7 @@ npx prisma db push
 1. Create ThemeProvider
 
 2. Create Theme toggle component
+
+## Sidebar
+
+1. Create Menubar component
