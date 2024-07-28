@@ -202,3 +202,7 @@ npx prisma db push
 ## Sidebar
 
 1. Create Menubar component
+
+## Creating posts (tip-tap editor)
+
+1. Create Post prisma model
