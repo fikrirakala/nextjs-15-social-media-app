@@ -208,3 +208,5 @@ npx prisma db push
 1. Create Post prisma model
 
 2. Create validation schema for creating Post
+
+3. Create Post Editor component
