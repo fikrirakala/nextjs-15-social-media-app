@@ -206,3 +206,5 @@ npx prisma db push
 ## Creating posts (tip-tap editor)
 
 1. Create Post prisma model
+
+2. Create validation schema for creating Post
