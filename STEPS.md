@@ -215,4 +215,6 @@ npx prisma db push
 
 5. Create Post Editor component
 
-6. Add Post Editor component to main page
+6. Add styles.css for editor
+
+7. Add Post Editor component to main page
