@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-0 bg-card shadow-sm">
+    <header className="sticky top-0 z-10 bg-card shadow-sm">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3">
         <div className="flex items-center gap-4">
           <Link href="/" className="text-2xl font-bold text-primary">
