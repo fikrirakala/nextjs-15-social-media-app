@@ -209,4 +209,10 @@ npx prisma db push
 
 2. Create validation schema for creating Post
 
-3. Create Post Editor component
+3. Create Post Editor component actions file
+
+4. Add Toaster component to root layout
+
+5. Create Post Editor component
+
+6. Add Post Editor component to main page
