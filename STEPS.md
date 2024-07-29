@@ -232,3 +232,17 @@ npx prisma db push
 2. Create WhoToFollow component
 
 3. Create Trending Topics component
+
+## React query setup
+
+1. Create api routes (app/api/posts/for-you/route.ts)
+
+2. Create React Query Provider (app/ReactQueryProvider.tsx)
+
+3. Add React Query Provider to root layout
+
+4. Create ForYouFeed component
+
+5. Add ForYouFeed to main page
+
+6. Clear query client when logout (UserButton.tsx)

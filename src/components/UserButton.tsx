@@ -15,6 +15,7 @@ import { LogOutIcon, UserIcon } from "lucide-react";
 import { logout } from "@/app/(auth)/actions";
 import { cn } from "@/lib/utils";
 import UserAvatar from "./UserAvatar";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface UserButtonProps {
   className?: string;
@@ -23,7 +24,10 @@ interface UserButtonProps {
 export default function UserButton({ className }: UserButtonProps) {
   const { user } = useSession();
 
+  const queryClient = useQueryClient();
+
   function handleLogout() {
+    queryClient.clear();
     logout();
   }
 
