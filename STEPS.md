@@ -224,3 +224,11 @@ npx prisma db push
 1. Create Post component
 
 2. Render Posts on the main page
+
+## Trending Sidebar
+
+1. Create Trends Sidebar
+
+2. Create WhoToFollow component
+
+3. Create Trending Topics component
