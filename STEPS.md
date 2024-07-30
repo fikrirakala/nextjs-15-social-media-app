@@ -246,3 +246,9 @@ npx prisma db push
 5. Add ForYouFeed to main page
 
 6. Clear query client when logout (UserButton.tsx)
+
+## Ky Setup
+
+1. Create ky client file (/lib/ky.ts)
+
+2. Use inside ForYouFeed component(queryFn)
