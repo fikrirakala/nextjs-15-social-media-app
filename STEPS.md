@@ -252,3 +252,13 @@ npx prisma db push
 1. Create ky client file (/lib/ky.ts)
 
 2. Use inside ForYouFeed component(queryFn)
+
+## useInfiniteQuery
+
+1. Create route.ts (api/posts/for-you/route.ts)
+
+2. Create infinite for you feed component
+
+3. Create infinite scroll container component
+
+4. Create loading skeleton
