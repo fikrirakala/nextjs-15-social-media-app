@@ -262,3 +262,11 @@ npx prisma db push
 3. Create infinite scroll container component
 
 4. Create loading skeleton
+
+## useMutation
+
+1. Create useSubmitPostMutation custom hook (components/posts/editor/mutations.ts)
+
+2. Update submitPost actions to return new post (components/posts/editor/actions.ts)
+
+3. Use mutation hook in post editor component (components/posts/editor/PostEditor.tsx)
