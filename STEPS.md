@@ -270,3 +270,15 @@ npx prisma db push
 2. Update submitPost actions to return new post (components/posts/editor/actions.ts)
 
 3. Use mutation hook in post editor component (components/posts/editor/PostEditor.tsx)
+
+## Deleting post
+
+1. Create delete actions (components/posts/actions.ts)
+
+2. Create delete post mutation (components/posts/mutations.ts)
+
+3. Create delete post dialog (component/posts/DeletePostDialog.tsx)
+
+4. Create post more button (component/posts/PostMoreButton.tsx)
+
+5. Add PostMoreButton to Post component (component/posts/Post.tsx)
