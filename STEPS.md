@@ -282,3 +282,7 @@ npx prisma db push
 4. Create post more button (component/posts/PostMoreButton.tsx)
 
 5. Add PostMoreButton to Post component (component/posts/Post.tsx)
+
+## Follow Feature
+
+1. Create prisma schema data model (Follow)
