@@ -41,13 +41,13 @@ export async function GET(
 
     const data: FollowerInfo = {
       followers: user._count.followers,
-      isFollowByUser: !!user.followers.length,
+      isFollowedByUser: !!user.followers.length,
     };
 
     return Response.json(data);
   } catch (error) {
     console.error(error);
-    Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
@@ -57,6 +57,8 @@ export async function POST(
 ) {
   try {
     const { user: loggedInUser } = await validateRequest();
+
+    // throw new Error("test");
 
     if (!loggedInUser) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
@@ -79,7 +81,7 @@ export async function POST(
     return new Response();
   } catch (error) {
     console.error(error);
-    Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
@@ -104,6 +106,6 @@ export async function DELETE(
     return new Response();
   } catch (error) {
     console.error(error);
-    Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Internal server error" }, { status: 500 });
   }
 }

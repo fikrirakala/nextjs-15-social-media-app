@@ -5,7 +5,7 @@ export default function useFollowerInfo(
   userId: string,
   initialState: FollowerInfo,
 ) {
-  const query = useQuery({
+  const query = useQuery<FollowerInfo>({
     queryKey: ["follower-info", userId],
     queryFn: async () => {
       const data = await fetch(`/api/users/${userId}/followers`);

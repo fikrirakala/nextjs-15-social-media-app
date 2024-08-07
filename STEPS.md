@@ -287,6 +287,10 @@ npx prisma db push
 
 1. Create prisma schema data model (Follow)
 
-2. Create followers api routes (api/users/[userId]/followers/route.ts)
+2. Create follow actions
 
 3. Create useFollowerInfo custom hook (src/useFollowerInfo.ts)
+
+4. Create Follow Button
+
+5. Add Follow Button to TrendSidebar
