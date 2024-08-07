@@ -7,10 +7,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 
 export default function ForYouFeed() {
-  const { data, status } = useQuery<PostData[]>({
+  const { data, isPending, isError } = useQuery<PostData[]>({
     queryKey: ["post-feed", "for-you"],
     queryFn: async () => {
-      const response = await fetch("/api/posts/for-you");
+      const response = await fetch("/api/posts/for-you-feed");
 
       if (!response.ok) {
         throw new Error(`Request failed with status code ${response.status}`);
@@ -20,11 +20,11 @@ export default function ForYouFeed() {
     },
   });
 
-  if (status === "pending") {
+  if (isPending) {
     return <Loader2 className="mx-auto animate-spin" />;
   }
 
-  if (status === "error") {
+  if (isError) {
     return (
       <p className="text-center text-destructive">
         An error occurred while loading posts.

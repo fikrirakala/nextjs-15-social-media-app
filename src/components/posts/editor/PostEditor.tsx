@@ -7,8 +7,8 @@ import Placeholder from "@tiptap/extension-placeholder";
 import UserAvatar from "@/components/UserAvatar";
 import { useSession } from "@/app/(main)/SessionProvider";
 import "./styles.css";
-import { useSubmitPostMutation } from "./mutations";
 import LoadingButton from "@/components/LoadingButton";
+import { useSubmitPostMutation } from "./useSubmitPostMutation";
 
 export default function PostEditor() {
   const { user } = useSession();

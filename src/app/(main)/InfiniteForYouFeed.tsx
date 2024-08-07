@@ -7,8 +7,8 @@ import { Loader2 } from "lucide-react";
 import InfiniteScrollContainer from "@/components/InfiniteScrollContainer";
 import PostsLoadingSkeleton from "@/components/posts/PostsLoadingSkeleton";
 
-async function fetchPosts({ pageParam }: { pageParam: number }) {
-  let url = `/api/posts/for-you?${pageParam !== 0 ? "cursor=" + pageParam : ""}`;
+async function fetchPosts({ pageParam }: { pageParam: string | null }) {
+  let url = `/api/posts/for-you${pageParam !== null ? "?cursor=" + pageParam : ""}`;
 
   const response = await fetch(url);
 
@@ -30,7 +30,7 @@ export default function InfiniteForYouFeed() {
   } = useInfiniteQuery({
     queryKey: ["post-feed", "for-you"],
     queryFn: fetchPosts,
-    initialPageParam: 0,
+    initialPageParam: null,
     getNextPageParam: (lastPage) => lastPage.nextCursor,
   });
 

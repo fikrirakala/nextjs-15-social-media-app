@@ -16,6 +16,7 @@ export function useSubmitPostMutation() {
   const mutation = useMutation({
     mutationFn: submitPost,
     onSuccess: async (newPost) => {
+      // update cache
       const queryFilter: QueryFilters = { queryKey: ["post-feed", "for-you"] };
 
       await queryClient.cancelQueries(queryFilter);
@@ -54,7 +55,7 @@ export function useSubmitPostMutation() {
 
       toast({
         variant: "destructive",
-        description: "Failed to post. Please try again",
+        description: "Failed to post. Please try again.",
       });
     },
   });

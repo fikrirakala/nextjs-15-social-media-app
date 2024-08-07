@@ -286,3 +286,5 @@ npx prisma db push
 ## Follow Feature
 
 1. Create prisma schema data model (Follow)
+
+2. Create followers api routes (api/users/[userId]/followers/route.ts)

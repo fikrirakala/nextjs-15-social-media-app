@@ -10,9 +10,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { PostData } from "@/lib/types";
-import { useDeletePostMutation } from "./mutations";
 import LoadingButton from "../LoadingButton";
 import { Button } from "../ui/button";
+import { useDeletePostMutation } from "./useDeletePostMutation";
 
 interface DeletePostDialogProps {
   post: PostData;
