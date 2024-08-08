@@ -4,9 +4,8 @@ import { FollowerInfo } from "@/lib/types";
 import React from "react";
 import { QueryKey, useMutation, useQueryClient } from "@tanstack/react-query";
 import useFollowerInfo from "@/hooks/useFollowerInfo";
-import { Button } from "../ui/button";
-import { useToast } from "../ui/use-toast";
-import { addFollower, deleteFollower } from "./actions";
+import { Button } from "./ui/button";
+import { useToast } from "./ui/use-toast";
 
 interface FollowButtonProps {
   userId: string;
@@ -27,10 +26,20 @@ export default function FollowButton({
 
   const { mutate } = useMutation({
     mutationFn: async () => {
+      let method: string;
+
       if (!data.isFollowedByUser) {
-        addFollower(userId);
+        method = "POST";
       } else {
-        deleteFollower(userId);
+        method = "DELETE";
+      }
+
+      const res = await fetch(`api/users/${userId}/followers`, {
+        method,
+      });
+
+      if (!res.ok) {
+        throw new Error("Something wrong");
       }
     },
     onMutate: async () => {

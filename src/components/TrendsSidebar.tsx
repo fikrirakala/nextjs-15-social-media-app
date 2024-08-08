@@ -3,11 +3,10 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 import React, { Suspense } from "react";
 import UserAvatar from "./UserAvatar";
-import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
 import { unstable_cache } from "next/cache";
 import { formatNumber } from "@/lib/utils";
-import FollowButton from "./follow/FollowButton";
+import FollowButton from "./FollowButton";
 import { getUserDataSelect } from "@/lib/types";
 
 export default function TrendsSidebar() {

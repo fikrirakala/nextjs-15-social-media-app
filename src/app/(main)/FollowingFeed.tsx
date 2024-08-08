@@ -20,7 +20,7 @@ export default function FollowingFeed() {
   } = useInfiniteQuery({
     queryKey: ["post-feed", "following"],
     queryFn: async ({ pageParam }) => {
-      const url = `/api/posts/following${pageParam !== null ? "?cursor=" + pageParam : ""}`;
+      const url = `/api/posts/following${pageParam ? "?cursor=" + pageParam : ""}`;
       const response = await fetch(url);
 
       if (!response.ok) {

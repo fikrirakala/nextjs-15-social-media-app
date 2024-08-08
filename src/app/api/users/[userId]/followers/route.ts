@@ -58,8 +58,6 @@ export async function POST(
   try {
     const { user: loggedInUser } = await validateRequest();
 
-    // throw new Error("test");
-
     if (!loggedInUser) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }

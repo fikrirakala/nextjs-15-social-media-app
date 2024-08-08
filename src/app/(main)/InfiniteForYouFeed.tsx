@@ -7,18 +7,6 @@ import { Loader2 } from "lucide-react";
 import InfiniteScrollContainer from "@/components/InfiniteScrollContainer";
 import PostsLoadingSkeleton from "@/components/posts/PostsLoadingSkeleton";
 
-async function fetchPosts({ pageParam }: { pageParam: string | null }) {
-  let url = `/api/posts/for-you${pageParam !== null ? "?cursor=" + pageParam : ""}`;
-
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error(`Request failed with status code ${response.status}`);
-  }
-
-  return response.json();
-}
-
 export default function InfiniteForYouFeed() {
   const {
     data,
@@ -29,7 +17,17 @@ export default function InfiniteForYouFeed() {
     status,
   } = useInfiniteQuery({
     queryKey: ["post-feed", "for-you"],
-    queryFn: fetchPosts,
+    queryFn: async ({ pageParam }) => {
+      let url = `/api/posts/for-you${pageParam ? "?cursor=" + pageParam : ""}`;
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status code ${response.status}`);
+      }
+
+      return response.json();
+    },
     initialPageParam: null,
     getNextPageParam: (lastPage) => lastPage.nextCursor,
   });
