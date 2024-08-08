@@ -294,3 +294,13 @@ npx prisma db push
 4. Create Follow Button
 
 5. Add Follow Button to TrendSidebar
+
+## Following Feed
+
+1. Create api routes (api/posts/following/route.ts)
+
+2. Create following feed component (main/FollowingFeed.tsx)
+
+3. Create tabs in the main page
+
+4. Add following feed and for you feed components inside the tabs
