@@ -7,18 +7,6 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import React from "react";
 
-async function fetchPosts({ pageParam }: { pageParam: string | null }) {
-  let url = `/api/posts/following${pageParam !== null ? "?cursor=" + pageParam : ""}`;
-
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error(`Request failed with status code ${response.status}`);
-  }
-
-  return response.json();
-}
-
 export default function FollowingFeed() {
   const {
     data,
@@ -31,8 +19,17 @@ export default function FollowingFeed() {
     isError,
   } = useInfiniteQuery({
     queryKey: ["post-feed", "following"],
-    queryFn: fetchPosts,
-    initialPageParam: null,
+    queryFn: async ({ pageParam }) => {
+      const url = `/api/posts/following${pageParam !== null ? "?cursor=" + pageParam : ""}`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status code ${response.status}`);
+      }
+
+      return response.json();
+    },
+    initialPageParam: null as string | null,
     getNextPageParam: (lastpage) => lastpage.nextCursor,
   });
 
