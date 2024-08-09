@@ -6,6 +6,7 @@ import { QueryKey, useMutation, useQueryClient } from "@tanstack/react-query";
 import useFollowerInfo from "@/hooks/useFollowerInfo";
 import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
+import kyInstance from "@/lib/ky";
 
 interface FollowButtonProps {
   userId: string;
@@ -25,23 +26,10 @@ export default function FollowButton({
   const queryKey: QueryKey = ["follower-info", userId];
 
   const { mutate } = useMutation({
-    mutationFn: async () => {
-      let method: string;
-
-      if (!data.isFollowedByUser) {
-        method = "POST";
-      } else {
-        method = "DELETE";
-      }
-
-      const res = await fetch(`api/users/${userId}/followers`, {
-        method,
-      });
-
-      if (!res.ok) {
-        throw new Error("Something wrong");
-      }
-    },
+    mutationFn: () =>
+      data.isFollowedByUser
+        ? kyInstance.delete(`/api/users/${userId}/followers`)
+        : kyInstance.post(`/api/users/${userId}/followers`),
     onMutate: async () => {
       await queryClient.cancelQueries({ queryKey });
 
@@ -64,7 +52,7 @@ export default function FollowButton({
 
       toast({
         variant: "destructive",
-        description: "Something went wrong. Please try again.",
+        description: error.message,
       });
     },
   });

@@ -304,3 +304,7 @@ npx prisma db push
 3. Create tabs in the main page
 
 4. Add following feed and for you feed components inside the tabs
+
+## User Profile Page
+
+1. Create user profile page
