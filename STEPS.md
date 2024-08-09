@@ -308,3 +308,7 @@ npx prisma db push
 ## User Profile Page
 
 1. Create user profile page
+
+2. Create loading page and not-fount page
+
+3. Refactor useSubmitPostMutation
