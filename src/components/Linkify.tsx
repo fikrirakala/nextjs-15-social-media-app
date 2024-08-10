@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import { LinkItUrl, LinkIt } from "react-linkify-it";
+import UserTooltip from "./UserTooltip";
+import UserLinkWithTooltip from "./UserLinkWithTooltip";
 
 interface LinkifyProps {
   children: ReactNode;
@@ -46,13 +48,9 @@ function LinkifyUsername({ children }: LinkifyProps) {
     <LinkIt
       regex={/(@[a-zA-Z0-9_-]+)/}
       component={(match, key) => (
-        <Link
-          key={key}
-          href={`/users/${match.slice(1)}`}
-          className="text-primary hover:underline"
-        >
+        <UserLinkWithTooltip key={key} username={match.slice(1)}>
           {match}
-        </Link>
+        </UserLinkWithTooltip>
       )}
     >
       {children}

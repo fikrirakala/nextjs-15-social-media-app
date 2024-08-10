@@ -322,3 +322,13 @@ npx prisma db push
 3. Wrap post content with linkify (Post.tsx)
 
 4. Wrap bio with linkify (UserProfile.tsx)
+
+## User Tooltip
+
+1. Create UserTooltip component
+
+2. Wrap username link inside the UserTooltip component (Post, TrendsSidebar, Linkify)
+
+3. Create username api routes (api/users/username/[username]/route.ts)
+
+4. Create UserLinkWithTooltip component
