@@ -312,3 +312,13 @@ npx prisma db push
 2. Create loading page and not-fount page
 
 3. Refactor useSubmitPostMutation
+
+## React Linkify It
+
+1. Install react-linkify-it
+
+2. Create Linkify component
+
+3. Wrap post content with linkify (Post.tsx)
+
+4. Wrap bio with linkify (UserProfile.tsx)
