@@ -332,3 +332,31 @@ npx prisma db push
 3. Create username api routes (api/users/username/[username]/route.ts)
 
 4. Create UserLinkWithTooltip component
+
+## Update user profile
+
+1. Setup Uploadthing
+
+   - Create a new app
+   - Copy api key to .env file
+   - Set up a file router (app/api/uploadthing/core.ts, app/api/uploadthing/route.ts)
+   - Create The UploadThing Components (lib/uploadthing.ts)
+   - Configure tailwind.config.ts
+   - Add NextSSRPlugin in the body of the root layout
+   - Add image remote patterns inside next.config.js file
+
+2. Create Validation schema
+
+3. Create update user actions (app/main/users/username/actions.ts)
+
+4. Create useUpdateProfileMutation hook
+
+5. Create Edit Profile Button
+
+6. Add Edit Profile Button to User Profile
+
+7. Create Edit Profile Dialog component
+
+8. Create Avatar Input component
+
+9. Create Crop Image Dialog component

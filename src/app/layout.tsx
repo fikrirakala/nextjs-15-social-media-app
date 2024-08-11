@@ -5,6 +5,9 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/toaster";
 import ReactQueryProvider from "./ReactQueryProvider";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { fileRouter } from "./api/uploadthing/core";
 
 export const metadata: Metadata = {
   title: {
@@ -22,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
+        <NextSSRPlugin routerConfig={extractRouterConfig(fileRouter)} />
         <ReactQueryProvider>
           <ThemeProvider
             attribute="class"
