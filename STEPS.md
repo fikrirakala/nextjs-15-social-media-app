@@ -360,3 +360,25 @@ npx prisma db push
 8. Create Avatar Input component
 
 9. Create Crop Image Dialog component
+
+## Post Media Upload
+
+1. Create Prisma Schema Model for Media
+
+2. Add uploadthing attachment file route (api/uploadthing/core.ts)
+
+3. Update createPostSchema validation
+
+4. Update Post Editor Actions (src/components/posts/editor/actions.ts)
+
+5. Create useMediaUpload hook
+
+6. Update PostEditor component (PostEditor.tsx)
+
+7. Create Add Attachments Button and add it to Post Editor component
+
+8. Create Attachment Previews component and add it to Post Editor
+
+9. Update getPostDataInclude (lib/types.ts)
+
+10. Create Image Previews component and then add it to Post component
