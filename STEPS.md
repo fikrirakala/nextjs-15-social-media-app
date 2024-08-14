@@ -382,3 +382,9 @@ npx prisma db push
 9. Update getPostDataInclude (lib/types.ts)
 
 10. Create Image Previews component and then add it to Post component
+
+## Drag & Drop and Copy-Paste Uploads
+
+1. Create drag & drop feature using useDropZone hook from uploadthing (PostEditor)
+
+2. Create copy-paste feature
