@@ -388,3 +388,11 @@ npx prisma db push
 1. Create drag & drop feature using useDropZone hook from uploadthing (PostEditor)
 
 2. Create copy-paste feature
+
+## Cron job delete orphaned images
+
+1. Create vercel.json file and add crons setting
+
+2. Add crons secret key in .env file
+
+3. Create api route (api/clear-uploads)
