@@ -396,3 +396,9 @@ npx prisma db push
 2. Add crons secret key in .env file
 
 3. Create api route (api/clear-uploads)
+
+## Post Detail Page
+
+1. Create Post detail page
+
+2. Add SuppressHydrationWarning attribute to Link Date of Post (Post.tsx)
