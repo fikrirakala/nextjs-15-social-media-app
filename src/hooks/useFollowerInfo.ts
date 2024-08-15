@@ -1,3 +1,4 @@
+import kyInstance from "@/lib/ky";
 import { FollowerInfo } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
 
@@ -7,15 +8,8 @@ export default function useFollowerInfo(
 ) {
   const query = useQuery<FollowerInfo>({
     queryKey: ["follower-info", userId],
-    queryFn: async () => {
-      const data = await fetch(`/api/users/${userId}/followers`);
-
-      if (!data.ok) {
-        throw new Error(`Request failed with status code ${data.status}`);
-      }
-
-      return data.json();
-    },
+    queryFn: () =>
+      kyInstance.get(`/api/users/${userId}/followers`).json<FollowerInfo>(),
     initialData: initialState,
     staleTime: Infinity,
   });

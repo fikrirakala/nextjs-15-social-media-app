@@ -3,6 +3,8 @@
 import InfiniteScrollContainer from "@/components/InfiniteScrollContainer";
 import Post from "@/components/posts/Post";
 import PostsLoadingSkeleton from "@/components/posts/PostsLoadingSkeleton";
+import kyInstance from "@/lib/ky";
+import { PostsPage } from "@/lib/types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import React from "react";
@@ -19,16 +21,13 @@ export default function FollowingFeed() {
     isError,
   } = useInfiniteQuery({
     queryKey: ["post-feed", "following"],
-    queryFn: async ({ pageParam }) => {
-      const url = `/api/posts/following${pageParam ? "?cursor=" + pageParam : ""}`;
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`Request failed with status code ${response.status}`);
-      }
-
-      return response.json();
-    },
+    queryFn: ({ pageParam }) =>
+      kyInstance
+        .get(
+          "/api/posts/following",
+          pageParam ? { searchParams: { cursor: pageParam } } : {},
+        )
+        .json<PostsPage>(),
     initialPageParam: null as string | null,
     getNextPageParam: (lastpage) => lastpage.nextCursor,
   });
