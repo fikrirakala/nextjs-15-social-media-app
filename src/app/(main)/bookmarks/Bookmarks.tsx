@@ -9,7 +9,7 @@ import PostsLoadingSkeleton from "@/components/posts/PostsLoadingSkeleton";
 import { PostsPage } from "@/lib/types";
 import kyInstance from "@/lib/ky";
 
-export default function InfiniteForYouFeed() {
+export default function Bookmarks() {
   const {
     data,
     fetchNextPage,
@@ -18,11 +18,11 @@ export default function InfiniteForYouFeed() {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ["post-feed", "for-you"],
+    queryKey: ["post-feed", "bookmarks"],
     queryFn: ({ pageParam }) =>
       kyInstance
         .get(
-          "/api/posts/for-you",
+          "/api/posts/bookmarked",
           pageParam ? { searchParams: { cursor: pageParam } } : {},
         )
         .json<PostsPage>(),
@@ -39,7 +39,7 @@ export default function InfiniteForYouFeed() {
   if (status === "success" && !posts.length && !hasNextPage) {
     return (
       <p className="text-center text-muted-foreground">
-        No one has posted anything yet.
+        You don&apos;t have any bookmarks yet.
       </p>
     );
   }
@@ -47,7 +47,7 @@ export default function InfiniteForYouFeed() {
   if (status === "error") {
     return (
       <p className="text-center text-destructive">
-        An error occurred while loading posts.
+        An error occurred while loading .
       </p>
     );
   }

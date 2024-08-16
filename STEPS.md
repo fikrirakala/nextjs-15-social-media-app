@@ -412,3 +412,19 @@ npx prisma db push
 3. Create Like Button component (components/posts/LikeButton.tsx)
 
 4. Add Like button to Post component
+
+## Bookmarks Feature
+
+1. Create Prisma schema model for Bookmark
+
+2. Create Bookmark info type
+
+3. Create Bookmark api route (api/posts/postId/bookmark/route.ts)
+
+4. Create Bookmark button and add it to Post component
+
+5. Create Bookmarked api route (api/posts/bookmarked/route.ts)
+
+6. Create Bookmarks component (main/bookmarks/Bookmarks.tsx)
+
+7. Create Bookmarks page
