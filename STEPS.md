@@ -402,3 +402,13 @@ npx prisma db push
 1. Create Post detail page
 
 2. Add SuppressHydrationWarning attribute to Link Date of Post (Post.tsx)
+
+## Likes Feature
+
+1. Create Prisma schema model for Like feature
+
+2. Create Like api route (api/posts/postId/likes/route.ts)
+
+3. Create Like Button component (components/posts/LikeButton.tsx)
+
+4. Add Like button to Post component
