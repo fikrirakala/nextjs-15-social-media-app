@@ -1,5 +1,5 @@
 import kyInstance from "@/lib/ky";
-import { CommentData, CommentsPage, PostData } from "@/lib/types";
+import { CommentsPage, PostData } from "@/lib/types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import React from "react";
 import CommentInput from "./CommentInput";
