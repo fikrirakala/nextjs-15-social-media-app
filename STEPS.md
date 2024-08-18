@@ -428,3 +428,21 @@ npx prisma db push
 6. Create Bookmarks component (main/bookmarks/Bookmarks.tsx)
 
 7. Create Bookmarks page
+
+## Comments Feature
+
+1. Create Prisma schema model for Comment
+
+2. Create validation schema for creating comment
+
+3. Update types
+
+4. Create comments actions (/components/comments/actions.ts)
+
+5. Create comments api route (/api/posts/postId/comments/route.ts)
+
+6. Create Comments component (/components/comments/Comments.tsx)
+
+7. Update Post component
+
+8. Create comments mutation hook
