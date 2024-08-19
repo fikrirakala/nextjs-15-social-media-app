@@ -26,13 +26,15 @@ model User {
   bio          String?
   sessions     Session[]
 
-  createdAt DateTime   @default(now())
-  posts     Post[]
-  following Follow[]   @relation("Following")
-  followers Follow[]   @relation("Followers")
-  likes     Like[]
-  bookmarks Bookmark[]
-  comments  Comment[]
+  createdAt             DateTime       @default(now())
+  posts                 Post[]
+  following             Follow[]       @relation("Following")
+  followers             Follow[]       @relation("Followers")
+  likes                 Like[]
+  bookmarks             Bookmark[]
+  comments              Comment[]
+  receivedNotifications Notification[] @relation("Recipient")
+  issuedNotifications   Notification[] @relation("Issuer")
 
   @@map("users")
 }
@@ -52,11 +54,12 @@ model Post {
   userId  String
   user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  createdAt   DateTime   @default(now())
-  attachments Media[]
-  likes       Like[]
-  bookmarks   Bookmark[]
-  comments    Comment[]
+  createdAt           DateTime       @default(now())
+  attachments         Media[]
+  likes               Like[]
+  bookmarks           Bookmark[]
+  comments            Comment[]
+  LinkedNotifications Notification[]
 
   @@map("posts")
 }
@@ -122,4 +125,26 @@ model Comment {
   createdAt DateTime @default(now())
 
   @@map("comments")
+}
+
+model Notification {
+  id          String           @id @default(cuid())
+  recipientId String
+  recipient   User             @relation("Recipient", fields: [recipientId], references: [id], onDelete: Cascade)
+  issuerId    String
+  issuer      User             @relation("Issuer", fields: [issuerId], references: [id], onDelete: Cascade)
+  postId      String?
+  post        Post?            @relation(fields: [postId], references: [id], onDelete: Cascade)
+  type        NotificationType
+  read        Boolean          @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
+
+enum NotificationType {
+  LIKE
+  FOLLOW
+  COMMENT
 }

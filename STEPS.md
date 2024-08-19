@@ -446,3 +446,23 @@ npx prisma db push
 7. Update Post component
 
 8. Create comments mutation hook
+
+## Notifications Feature
+
+1. Create Prisma Schema Model
+
+2. Update Likes api route (/api/posts/postId/likes/route.ts)
+
+3. Update Followers api route (/api/users/userId/followers/route.ts)
+
+4. Update Comments actions (components/comments/actions.ts)
+
+5. Update types
+
+6. Create Notifications api route (/api/notifications/route.ts)
+
+7. Create Notifications page (/main/notifications/page.tsx)
+
+8. Create Notifications component
+
+9. Create Notifications Button for Menubar

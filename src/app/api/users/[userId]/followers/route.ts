@@ -53,7 +53,7 @@ export async function GET(
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { userId: string } },
+  { params: { userId } }: { params: { userId: string } },
 ) {
   try {
     const { user: loggedInUser } = await validateRequest();
@@ -62,19 +62,28 @@ export async function POST(
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    await prisma.follow.upsert({
-      where: {
-        followerId_followingId: {
-          followerId: loggedInUser.id,
-          followingId: params.userId,
+    await prisma.$transaction([
+      prisma.follow.upsert({
+        where: {
+          followerId_followingId: {
+            followerId: loggedInUser.id,
+            followingId: userId,
+          },
         },
-      },
-      create: {
-        followerId: loggedInUser.id,
-        followingId: params.userId,
-      },
-      update: {},
-    });
+        create: {
+          followerId: loggedInUser.id,
+          followingId: userId,
+        },
+        update: {},
+      }),
+      prisma.notification.create({
+        data: {
+          issuerId: loggedInUser.id,
+          recipientId: userId,
+          type: "FOLLOW",
+        },
+      }),
+    ]);
 
     return new Response();
   } catch (error) {
@@ -85,7 +94,7 @@ export async function POST(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { userId: string } },
+  { params: { userId } }: { params: { userId: string } },
 ) {
   try {
     const { user: loggedInUser } = await validateRequest();
@@ -94,12 +103,21 @@ export async function DELETE(
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    await prisma.follow.deleteMany({
-      where: {
-        followerId: loggedInUser.id,
-        followingId: params.userId,
-      },
-    });
+    prisma.$transaction([
+      prisma.follow.deleteMany({
+        where: {
+          followerId: loggedInUser.id,
+          followingId: userId,
+        },
+      }),
+      prisma.notification.deleteMany({
+        where: {
+          issuerId: loggedInUser.id,
+          recipientId: userId,
+          type: "FOLLOW",
+        },
+      }),
+    ]);
 
     return new Response();
   } catch (error) {
