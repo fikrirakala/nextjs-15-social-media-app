@@ -466,3 +466,33 @@ npx prisma db push
 8. Create Notifications component
 
 9. Create Notifications Button for Menubar
+
+## Direct Messages Chat
+
+1. Create Stream account (getstream.io)
+
+2. Update .env file with Stream's key and secret
+
+3. Create Stream client (/lib/stream.ts)
+
+4. Create a route to authenticate a user in Stream (/api/get-token/route.ts)
+
+5. Create messages hook (/main/messages/useInitializeChatClient.ts)
+
+6. Create Chat component (/main/messages/Chat)
+
+7. Create Messages page and add Chat component
+
+8. Update globals.css with Stream chat style
+
+9. Update auth signup actions (/auth/signup/actions.ts)
+
+10. Update Users's update server actions (/main/users/username/actions.ts)
+
+11. Update Uploadthing core file (/api/uploadthing/core.ts)
+
+12. Create useDebounce hook for search input (/hook/useDebounce.ts)
+
+13. Create messages unread count api (/api/messages/unread-count/route.ts)
+
+14. Create Messages Button and add it to Menubar
