@@ -506,3 +506,7 @@ npx prisma db push
 3. Create Search page
 
 4. Update next.config.js file to add hashtag link rewrite
+
+## Deployment
+
+1. Update package.json
