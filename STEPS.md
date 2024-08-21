@@ -496,3 +496,13 @@ npx prisma db push
 13. Create messages unread count api (/api/messages/unread-count/route.ts)
 
 14. Create Messages Button and add it to Menubar
+
+## Search Feature
+
+1. Create Search api route
+
+2. Create Search Results Component
+
+3. Create Search page
+
+4. Update next.config.js file to add hashtag link rewrite
